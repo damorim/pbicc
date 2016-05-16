@@ -1,5 +1,7 @@
 package icc.data;
 
+import java.util.ArrayList;
+
 public class IntentFilter
 {
   public static class Data
@@ -28,7 +30,7 @@ public class IntentFilter
     }
   }
   
-  public String action;
+  public ArrayList<String> actions = new ArrayList<String>();
   public String category;
   public Data data = new Data();
   
@@ -36,7 +38,10 @@ public class IntentFilter
   {
     StringBuilder builder = new StringBuilder();
     
-    builder.append(String.format("%s: %s\n", "Action", action));
+    for(int i=0; i<actions.size(); i++){
+    	builder.append(String.format("%s(%d): %s\n", "Action", i, actions.get(i)));	
+    }
+    
     builder.append(String.format("%s: %s\n", "Category",category));
     builder.append("Data:");
     builder.append(String.format("%s\n", data));
