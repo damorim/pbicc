@@ -31,7 +31,7 @@ public class IntentFilter
   }
   
   public ArrayList<String> actions = new ArrayList<String>();
-  public String category;
+  public ArrayList<String> categories = new ArrayList<String>();
   public Data data = new Data();
   
   public String toString()
@@ -42,7 +42,9 @@ public class IntentFilter
     	builder.append(String.format("%s(%d): %s\n", "Action", i, actions.get(i)));	
     }
     
-    builder.append(String.format("%s: %s\n", "Category",category));
+    for(int i=0; i<categories.size(); i++){
+    	builder.append(String.format("%s(%d): %s\n", "Category",i,categories.get(i)));
+    }
     builder.append("Data:");
     builder.append(String.format("%s\n", data));
     
